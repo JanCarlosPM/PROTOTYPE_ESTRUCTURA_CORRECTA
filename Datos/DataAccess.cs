@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,6 +13,21 @@ namespace Entidades
             using (var db = new ClonacionComputadorasEntities())
             {
                 return db.Computadoras.ToList();
+            }
+        }
+
+        public static void VerificarConexionBaseDeDatos()
+        {
+            using (var db = new ClonacionComputadorasEntities())
+            {
+                try
+                {
+                    db.Database.Connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al conectar con la base de datos: " + ex.Message);
+                }
             }
         }
 
