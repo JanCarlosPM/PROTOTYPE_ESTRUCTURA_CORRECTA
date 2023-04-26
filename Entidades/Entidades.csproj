@@ -54,19 +54,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClonacionComputadoraModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClonacionComputadoraModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClonacionComputadoraModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClonacionComputadoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClonacionComputadoraModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClonacionComputadoraModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ClonacionComputadorasEntities.cs" />
-    <Compile Include="computadora.cs" />
+    <Compile Include="computadora.cs">
+      <DependentUpon>ClonacionComputadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ComputadoraPartial.cs" />
-    <Compile Include="Computadoras.cs" />
+    <Compile Include="Computadoras.cs">
+      <DependentUpon>ClonacionComputadoraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="IPrototype.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="ClonacionComputadoraModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ClonacionComputadoraModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClonacionComputadoraModel.edmx.diagram">
+      <DependentUpon>ClonacionComputadoraModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClonacionComputadoraModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClonacionComputadoraModel.edmx</DependentUpon>
+      <LastGenOutput>ClonacionComputadoraModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ClonacionComputadoraModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClonacionComputadoraModel.edmx</DependentUpon>
+      <LastGenOutput>ClonacionComputadoraModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
